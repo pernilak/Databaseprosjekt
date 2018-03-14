@@ -5,7 +5,7 @@ use treningsdagbok;
 create table treningsøkt
 	(treningsid INT NOT NULL AUTO_INCREMENT,
     dato date,
-    tidspunkt time,
+    tidspunkt int, 
     varighet int,
     form int check(form >= 0 and form <= 10),
     prestasjon int check(prestasjon >= 0 and prestasjon <= 10),
