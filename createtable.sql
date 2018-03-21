@@ -4,20 +4,13 @@ use treningsdagbok;
 
 create table treningsøkt
 	(treningsid INT NOT NULL AUTO_INCREMENT,
-    dato date,
-    tidspunkt int, 
+    dato date, #'YYYY-MM-DD'
+    tidspunkt time, #'HHMMSS'
     varighet int,
     form int check(form >= 0 and form <= 10),
     prestasjon int check(prestasjon >= 0 and prestasjon <= 10),
+    notat text,
     primary key(treningsid));
-
-create table notat
-	(notatid int not null,
-    informasjon text,
-    treningsid int not null,
-    primary key(notatid),
-    foreign key(treningsid) references treningsøkt(treningsid) 
-		on delete cascade);
     
 create table apparat
 	(apparatid int not null,
@@ -50,6 +43,7 @@ create table øvelsemedapparat
     
 create table øvelsesgruppe
 	(gruppeid int not null,
+    muskelgruppe varchar(45),
     primary key(gruppeid));
     
 create table øvelseigruppe
